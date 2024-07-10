@@ -1,0 +1,84 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id Int @id @default(autoincrement())
+  email String @unique
+  password String
+  role Role @default(USER)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  orders Order[]
+  cart Cart[]
+}
+
+enum Role {
+  USER
+  ADMIN
+}
+
+model Game {
+  id Int @id
+  name String
+  price Float?
+  rating Int
+  description String
+  coverID Int
+  covers Cover @relation(fields: [coverID], references: [id])
+  genreID Int
+  genre Genre @relation(fields: [genreID], references: [id])
+  cartItems Cart[]
+  orderItems OrderItem[]
+}
+
+model Genre {
+  id Int @id
+  name String
+  games Game[]
+}
+
+model Cover {
+  id Int @id
+  url String
+  height Int
+  width Int
+  game Game[]
+}
+
+model Order {
+  id Int @id @default(autoincrement())
+  userId Int
+  totalPrice Float
+  user User @relation(fields: [userId], references: [id])
+  orderItems OrderItem[]
+}
+
+model OrderItem {
+  id Int @id @default(autoincrement())
+  orderId Int
+  gameId Int
+  quantity Int
+  order Order @relation(fields: [orderId], references: [id])
+  game Game @relation(fields: [gameId], references: [id])
+}
+
+model Cart {
+  id Int @id @default(autoincrement())
+  userId Int
+  gameId Int
+  quantity Int
+  user User @relation(fields: [userId], references: [id])
+  game Game @relation(fields: [gameId], references: [id])
+}
