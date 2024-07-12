@@ -22,8 +22,8 @@ model User {
   role Role @default(USER)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  // wishlist Wishlist?
-  // cart Cart?
+  wishlist Wishlist?
+  cart Cart?
 }
 
 enum Role {
@@ -31,65 +31,65 @@ enum Role {
   ADMIN
 }
 
-// model Game {
-//   id Int @id @default(autoincrement())
-//   title String @unique
-//   price Float
-//   description String
-//   imageUrl String
-//   genre Genre
-//   totalRating Int @default(0)    // Tracks the sum of all ratings
-//   ratingsCount Int @default(0)   // Keeps track of the total ratings received
-//   averageRating Float @map("CAST(totalRating AS REAL) / ratingsCount")// Computed field based on totalRating and ratingsCount
-//   carts GameInCart[] @relation("GameInCartToGame")
-//   wishlists GameInWishlist[] @relation("GameInWishlistToGame") 
-// }
+model Game {
+  id Int @id @default(autoincrement())
+  title String @unique
+  price Float
+  description String
+  imageUrl String
+  genre Genre
+  totalRating Int @default(0)    // Tracks the sum of all ratings
+  ratingsCount Int @default(0)   // Keeps track of the total ratings received
+  averageRating Float @map("CAST(totalRating AS REAL) / ratingsCount")// Computed field based on totalRating and ratingsCount
+  carts GameInCart[] @relation("GameInCartToGame")
+  wishlists GameInWishlist[] @relation("GameInWishlistToGame") 
+}
 
-// enum Genre {
-//   Action
-//   Adventure
-//   RPG
-//   Strategy
-//   Simulation
-//   Puzzle
-//   Casual
-//   Sports
-//   Racing
-//   Platformer
-//   Fighting
-//   MMORPG
-//   Indie
-//   FPS
-//   Shooter
-// }
-// model Cart {
-//   id Int @id @default(autoincrement())
-//   userId Int @unique
-//   user User @relation(fields: [userId], references: [id])
-//   games GameInCart[]
-// }
+enum Genre {
+  Action
+  Adventure
+  RPG
+  Strategy
+  Simulation
+  Puzzle
+  Casual
+  Sports
+  Racing
+  Platformer
+  Fighting
+  MMORPG
+  Indie
+  FPS
+  Shooter
+}
+model Cart {
+  id Int @id @default(autoincrement())
+  userId Int @unique
+  user User @relation(fields: [userId], references: [id])
+  games GameInCart[]
+}
 
-// model Wishlist {
-//   id Int @id @default(autoincrement())
-//   userId Int @unique
-//   user User @relation(fields: [userId], references: [id])
-//   games GameInWishlist[]
-// }
+model Wishlist {
+  id Int @id @default(autoincrement())
+  userId Int @unique
+  user User @relation(fields: [userId], references: [id])
+  games GameInWishlist[]
+}
 
-// model GameInCart {
-//   id     Int @id @default(autoincrement())
-//   gameId Int
-//   cartId Int
-//   game   Game  @relation(fields: [gameId], references: [id], name: "GameInCartToGame")
-//   cart   Cart  @relation(fields: [cartId], references: [id])
-//   @@unique([gameId, cartId])
-// }
+model GameInCart {
+  id     Int @id @default(autoincrement())
+  gameId Int
+  cartId Int
+  game   Game  @relation(fields: [gameId], references: [id], name: "GameInCartToGame")
+  cart   Cart  @relation(fields: [cartId], references: [id])
+  @@unique([gameId, cartId])
+}
 
-// model GameInWishlist {
-//   id      Int @id @default(autoincrement())
-//   gameId  Int
-//   wishlistId Int
-//   game     Game  @relation(fields: [gameId], references: [id], name: "GameInWishlistToGame")
-//   wishlist Wishlist  @relation(fields: [wishlistId], references: [id])
-//   @@unique([gameId, wishlistId])
-// }
+model GameInWishlist {
+  id      Int @id @default(autoincrement())
+  gameId  Int
+  wishlistId Int
+  game     Game  @relation(fields: [gameId], references: [id], name: "GameInWishlistToGame")
+  wishlist Wishlist  @relation(fields: [wishlistId], references: [id])
+  @@unique([gameId, wishlistId])
+}
