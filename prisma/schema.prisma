@@ -46,21 +46,28 @@ model Game {
 }
 
 enum Genre {
-  Action
   Adventure
-  RPG
-  Strategy
-  Simulation
-  Puzzle
-  Casual
-  Sports
-  Racing
-  Platformer
+  Arcade
+  card_and_board_game
   Fighting
-  MMORPG
+  hack_and_slash_beat_em_up
   Indie
-  FPS
+  MOBA
+  Pinball
+  Platform
+  point_and_click
+  Puzzle
+  Quiz
+  Racing
+  RTS
+  RPG
   Shooter
+  Simulator
+  Sport
+  Strategy
+  Tactical
+  TBS
+  visual_novel
 }
 model Cart {
   id Int @id @default(autoincrement())
