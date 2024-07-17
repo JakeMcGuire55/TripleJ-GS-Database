@@ -5,9 +5,9 @@ async function main() {
   const games = [
     {
       imageUrl: "https://images.igdb.com/igdb/image/upload/t_thumb/co7dqq.jpg",
-      genres: [16],
+      genres: "Shooter",
       title: "Blood Strike",
-      price: 60.00,
+      price: 60.0,
       totalRating: 100.0,
       ratingsCount: 6,
       description:
@@ -15,9 +15,9 @@ async function main() {
     },
     {
       imageUrl: "https://images.igdb.com/igdb/image/upload/t_thumb/co83vd.jpg",
-      genres: [15],
+      genres: "RPG",
       title: "Paper Mario: The Thousand-Year Door",
-      price: 40.00,
+      price: 40.0,
       totalRating: 99.89746505875442,
       ratingsCount: 7,
       description:
@@ -25,9 +25,9 @@ async function main() {
     },
     {
       imageUrl: "https://images.igdb.com/igdb/image/upload/t_thumb/co3yjh.jpg",
-      genres: [11, 1, 6],
+      genres: "Adventure",
       title: "Outer Wilds: Archaeologist Edition",
-      price: 60.00,
+      price: 60.0,
       totalRating: 99.8273394234156,
       ratingsCount: 8,
       description:
@@ -35,9 +35,9 @@ async function main() {
     },
     {
       imageUrl: "https://images.igdb.com/igdb/image/upload/t_thumb/co2ata.jpg",
-      genres: [22],
+      genres: "visual_novel",
       title: "Adastra",
-      price: 10.00,
+      price: 10.0,
       totalRating: 99.77044823003504,
       ratingsCount: 5,
       description:
@@ -45,9 +45,9 @@ async function main() {
     },
     {
       imageUrl: "https://images.igdb.com/igdb/image/upload/t_thumb/co7dw9.jpg",
-      genres: [16, 1],
+      genres: "Adventure",
       title: "The Last of Us Part II: Remastered",
-      price: 80.00,
+      price: 80.0,
       totalRating: 99.73033886498544,
       ratingsCount: 18,
       description:
@@ -55,19 +55,19 @@ async function main() {
     },
     {
       imageUrl: "https://images.igdb.com/igdb/image/upload/t_thumb/co2b8f.jpg",
-      genres: [15],
+      genres: "RPG",
       title: "Golden Axe Warrior",
-      price: 40.00,
+      price: 40.0,
       totalRating: 99.66478433230063,
       ratingsCount: 7,
       description:
-        "World peace is at stake! Death Adder, a wicked giant, has stolen the nine crystals from the kingdom of Firewood and has iden them in nine labyrinths that he has created. These nine magic crystals protected the people from evil – especially from Death Adder's grasp. But now that the crystals are lost, the world is defenseless!\n\nSomeone must put an end to the fiend's realm of darkness, death and destruction! Do you have what it takes to bring back peace and happiness? Trek through deep, dark forests and sail across vast, stormy seas. Chop down trees with your Battle Axe and move rocks with your magic spells to find secret caves. When you take on Death Adder's gruesome monsters, think only of winning – or else you won't find the nine crystals. And when you do, you'll find the Golden Axe – the only weapon that can crush Death Adder!",
+        "World peace is at stake! Death Adder, a wicked giant, has stolen the nine crystals from the kingdom of Firewood and has iden them in nine labyrinths that he has created. These nine magic crystals protected the people from evil especially from Death Adder's grasp. But now that the crystals are lost, the world is defenseless!\n\nSomeone must put an end to the fiend's realm of darkness, death and destruction! Do you have what it takes to bring back peace and happiness? Trek through deep, dark forests and sail across vast, stormy seas. Chop down trees with your Battle Axe and move rocks with your magic spells to find secret caves. When you take on Death Adder's gruesome monsters, think only of winning – or else you won't find the nine crystals. And when you do, you'll find the Golden Axe – the only weapon that can crush Death Adder!",
     },
     {
       imageUrl: "https://images.igdb.com/igdb/image/upload/t_thumb/co4hkv.jpg",
-      genres: [17, 18],
+      genres: "Sport",
       title: "MLB Power Pros 2008",
-      price: 40.00,
+      price: 40.0,
       totalRating: 99.64064436183395,
       ratingsCount: 9,
       description:
@@ -75,9 +75,9 @@ async function main() {
     },
     {
       imageUrl: "https://images.igdb.com/igdb/image/upload/t_thumb/co8fui.jpg",
-      genres: [10, 11, 15, 17, 6],
+      genres: "RPG",
       title: "Polity",
-      price: 10.00,
+      price: 10.0,
       totalRating: 99.62019730701101,
       ratingsCount: 9,
       description:
@@ -85,9 +85,9 @@ async function main() {
     },
     {
       imageUrl: "https://images.igdb.com/igdb/image/upload/t_thumb/co1zdd.jpg",
-      genres: [9, 15, 1],
+      genres: "Platform",
       title: "Goblin Sword",
-      price: 20.00,
+      price: 20.0,
       totalRating: 99.55708592307728,
       ratingsCount: 10,
       description:
@@ -95,27 +95,37 @@ async function main() {
     },
     {
       imageUrl: "https://images.igdb.com/igdb/image/upload/t_thumb/co45jf.jpg",
-      genres: [1],
+      genres: "Adventure",
       title: "Metal Gear Solid The Legacy Collection",
-      price: 70.00,
+      price: 70.0,
       totalRating: 99.54698841155705,
       ratingsCount: 38,
       description:
         "Metal Gear Solid The Legacy Collection is a ido game compilation released exclusively for the PlayStation 3. It includes all the mainline Metal Gear games directed and designed by ido Kojima (including the VR Missions standalone expansion) that were released from 1987 through 2012. Bonus content include motion comic adaptations of the Metal Gear Soidgraphic novels by Kris Oprisko and Ashley Wood and a 100-page booklet that catalogs numerous promotional posters, brochures and advertisement related to the games in the compilation.",
     },
+    {
+      imageUrl: "https://images.igdb.com/igdb/image/upload/t_thumb/co23df.jpg",
+      genres: "Fighting",
+      title: "Elysian Odyssey",
+      price: 49.99,
+      totalRating: 87.23145,
+      ratingsCount: 1248,
+      description:
+        "Elysian Odyssey is a sprawling action RPG set in a vibrant fantasy world. Explore forgotten ruins, battle fearsome foes, and uncover the secrets of a lost civilization. With a deep character customization system and a branching storyline, Elysian Odyssey offers a unique adventure for every player.",
+    },
   ];
   for (const game of games) {
     await prisma.game.create({
-        data: {
-            title: game.title,
-            price: game.price,
-            description: game.description,
-            imageUrl: game.imageUrl,
-            genre: game.genres,
-            totalRating: game.totalRating,
-            ratingsCount: game.ratingsCount,
-        }
-    })
+      data: {
+        title: game.title,
+        price: game.price,
+        description: game.description,
+        imageUrl: game.imageUrl,
+        genre: game.genres,
+        totalRating: game.totalRating,
+        ratingsCount: game.ratingsCount,
+      },
+    });
   }
 }
 

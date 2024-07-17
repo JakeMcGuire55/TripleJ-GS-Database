@@ -33,7 +33,7 @@ enum Role {
 
 model Game {
   id Int @id @default(autoincrement())
-  title String @unique
+  title String
   price Float
   description String
   imageUrl String
