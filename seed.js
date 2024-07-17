@@ -118,13 +118,13 @@ async function main() {
     await prisma.game.create({
         data: {
             id: game.id,
-            cover: game.cover,
-            genres: game.genres,
             title: game.title,
-            platforms: game.platforms,
+            price: game.price,
+            description: game.description,
+            imageUrl: game.imageUrl,
+            genre: game.genres,
             totalRating: game.totalRating,
             ratingsCount: game.ratingsCount,
-            description: game.description,
         }
     })
   }
