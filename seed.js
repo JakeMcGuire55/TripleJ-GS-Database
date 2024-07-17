@@ -5,7 +5,7 @@ async function main() {
   const games = [
     {
       imageUrl: "https://images.igdb.com/igdb/image/upload/t_thumb/co7dqq.jpg",
-      genres: [17],
+      genres: [16],
       title: "Blood Strike",
       price: 60.00,
       totalRating: 100.0,
@@ -15,7 +15,7 @@ async function main() {
     },
     {
       imageUrl: "https://images.igdb.com/igdb/image/upload/t_thumb/co83vd.jpg",
-      genres: [16],
+      genres: [15],
       title: "Paper Mario: The Thousand-Year Door",
       price: 40.00,
       totalRating: 99.89746505875442,
@@ -25,7 +25,7 @@ async function main() {
     },
     {
       imageUrl: "https://images.igdb.com/igdb/image/upload/t_thumb/co3yjh.jpg",
-      genres: [12, 1, 6],
+      genres: [11, 1, 6],
       title: "Outer Wilds: Archaeologist Edition",
       price: 60.00,
       totalRating: 99.8273394234156,
@@ -35,7 +35,7 @@ async function main() {
     },
     {
       imageUrl: "https://images.igdb.com/igdb/image/upload/t_thumb/co2ata.jpg",
-      genres: [23],
+      genres: [22],
       title: "Adastra",
       price: 10.00,
       totalRating: 99.77044823003504,
@@ -45,7 +45,7 @@ async function main() {
     },
     {
       imageUrl: "https://images.igdb.com/igdb/image/upload/t_thumb/co7dw9.jpg",
-      genres: [17, 1],
+      genres: [16, 1],
       title: "The Last of Us Part II: Remastered",
       price: 80.00,
       totalRating: 99.73033886498544,
@@ -55,7 +55,7 @@ async function main() {
     },
     {
       imageUrl: "https://images.igdb.com/igdb/image/upload/t_thumb/co2b8f.jpg",
-      genres: [16],
+      genres: [15],
       title: "Golden Axe Warrior",
       price: 40.00,
       totalRating: 99.66478433230063,
@@ -65,7 +65,7 @@ async function main() {
     },
     {
       imageUrl: "https://images.igdb.com/igdb/image/upload/t_thumb/co4hkv.jpg",
-      genres: [18, 19],
+      genres: [17, 18],
       title: "MLB Power Pros 2008",
       price: 40.00,
       totalRating: 99.64064436183395,
@@ -75,7 +75,7 @@ async function main() {
     },
     {
       imageUrl: "https://images.igdb.com/igdb/image/upload/t_thumb/co8fui.jpg",
-      genres: [11, 12, 16, 18, 6],
+      genres: [10, 11, 15, 17, 6],
       title: "Polity",
       price: 10.00,
       totalRating: 99.62019730701101,
@@ -85,7 +85,7 @@ async function main() {
     },
     {
       imageUrl: "https://images.igdb.com/igdb/image/upload/t_thumb/co1zdd.jpg",
-      genres: [10, 16, 1],
+      genres: [9, 15, 1],
       title: "Goblin Sword",
       price: 20.00,
       totalRating: 99.55708592307728,

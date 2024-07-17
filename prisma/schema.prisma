@@ -39,8 +39,7 @@ model Game {
   imageUrl String
   genre Genre
   totalRating Int @default(0)    // Tracks the sum of all ratings
-  ratingsCount Int @default(0)   // Keeps track of the total ratings received
-  averageRating Float @map("CAST(totalRating AS REAL) / ratingsCount")// Computed field based on totalRating and ratingsCount
+  ratingsCount Int @default(0)   // Keeps track of the total ratings received averageRating Float @map("CAST(totalRating AS REAL) / ratingsCount")// Computed field based on totalRating and ratingsCount
   carts GameInCart[] @relation("GameInCartToGame")
   wishlists GameInWishlist[] @relation("GameInWishlistToGame") 
 }
@@ -53,6 +52,7 @@ enum Genre {
   hack_and_slash_beat_em_up
   Indie
   MOBA
+  Music
   Pinball
   Platform
   point_and_click
