@@ -115,17 +115,24 @@ async function main() {
     },
   ];
   for (const game of games) {
-    await prisma.game.create({
-      data: {
+    const existingGame = await prisma.game.findFirst({
+      where: {
         title: game.title,
-        price: game.price,
-        description: game.description,
-        imageUrl: game.imageUrl,
-        genre: game.genres,
-        totalRating: game.totalRating,
-        ratingsCount: game.ratingsCount,
       },
     });
+    if (!existingGame) {
+      await prisma.game.create({
+        data: {
+          title: game.title,
+          price: game.price,
+          description: game.description,
+          imageUrl: game.imageUrl,
+          genre: game.genres,
+          totalRating: game.totalRating,
+          ratingsCount: game.ratingsCount,
+        },
+      });
+    }
   }
 }
 
