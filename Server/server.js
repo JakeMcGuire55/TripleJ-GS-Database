@@ -3,7 +3,7 @@ const app = express();
 const PORT = process.env.DATABASE_URL || 3000;
 require('dotenv').config();
 
-const gamesRoutes = require('./API/games');
+const gamesRoutes = require('./API/games'); // NEED TO FIX
 // const usersRoutes = require('./routes/API/users');
 app.use(express.json());
 
