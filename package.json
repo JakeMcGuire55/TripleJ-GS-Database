@@ -1,6 +1,6 @@
 {
   "name": "@jakemcguire55/triplej-gs-database",
-  "version": "1.0.6",
+  "version": "1.0.8",
   "description": "",
   "main": "index.js",
   "publishConfig": {
@@ -10,7 +10,7 @@
     "generate": "npx prisma generate",
     "postinstall": "npm run generate",
     "release": "standard-version",
-    "seed": "node seed.js"
+    "seed": "node ./Server/database/seed.js"
   },
   "keywords": [],
   "author": "",
