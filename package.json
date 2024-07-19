@@ -10,7 +10,7 @@
     "generate": "npx prisma generate",
     "postinstall": "npm run generate",
     "release": "standard-version",
-    "seed": "node seed.js"
+    "seed": "node ./Server/database/seed.js"
   },
   "keywords": [],
   "author": "",
