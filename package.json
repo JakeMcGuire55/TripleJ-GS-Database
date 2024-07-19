@@ -1,6 +1,6 @@
 {
   "name": "@jakemcguire55/triplej-gs-database",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "",
   "main": "index.js",
   "publishConfig": {
@@ -20,7 +20,10 @@
     "dotenv": "^16.4.5",
     "nodemon": "^3.1.4",
     "prisma": "^5.16.2",
-    "standard-version": "^9.5.0"
+    "standard-version": "^9.5.0",
+    "bcrypt": "^5.1.1",
+    "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.2"
   },
   "peerDependencies": {
     "@prisma/client": ">=5"
