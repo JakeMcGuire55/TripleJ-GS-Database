@@ -11,8 +11,8 @@
     "postinstall": "npm run generate",
     "release": "standard-version",
     "seed": "node ./Server/database/seed.js",
-    "dev": "nodemon ./server.js",
-    "start": "node ./server.js"
+    "dev": "nodemon server.js",
+    "start": "node server.js"
   },
   "keywords": [],
   "author": "",
