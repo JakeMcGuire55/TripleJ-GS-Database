@@ -39,7 +39,6 @@
     "jsonwebtoken": "^9.0.2",
     "node": "^22.5.0",
     "nodemon": "^3.1.4",
-    "npm": "^10.8.2",
     "prisma": "^5.16.2",
     "standard-version": "^9.5.0"
   }
