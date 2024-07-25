@@ -44,5 +44,34 @@ router.post("/register", async (req, res) => {
 });
 
 // Route for User Login. Takes email and password as arguments. Issues accessToken upon successful login
+router.post("/login", async (req, res) => {
+    try {
+        const {email, password} = req.body;
+        const user = await prisma.user.findUnique({
+            where: {
+                email,
+            },
+        });
+        const passwordMatch = await bcrypt.compare(password, user.password);
+        if (passwordMatch) {
+            const payload = {
+                id: user.id,
+                username: user.username,
+                email: user.email,
+                role: user.role,
+            };
+            const accessToken = jwt.sign(payload, process.env.SECRET_KEY, {
+                expiresIn: "7d",
+            });
+            res.status(200).json({ accessToken, userId: user.id });
+        } else {
+            res.status(401).json({ error: "Invalid credentials" });
+        }
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: "Internal server error" });
+    }
+});
+
 
 module.exports = router;
