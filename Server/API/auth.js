@@ -43,7 +43,7 @@ router.post("/register", async (req, res) => {
     }
 });
 
-// Route for User Login. Takes email and password as arguments. Issues accessToken upon successful login
+// Route for User Login. Takes email and password as arguments. Issues accessToken and userId upon successful login
 router.post("/login", async (req, res) => {
     try {
         const {email, password} = req.body;
