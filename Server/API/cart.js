@@ -78,22 +78,33 @@ router.delete(
   async (req, res) => {
     try {
       const { userId, gameId } = req.body;
+      
+      // Find the cart associated with the User
+      const cart = await prisma.cart.findUnique({
+        where: {
+          userId: parseInt(userId),
+        },
+      });
+      // Check if Cart exists
+      if (!cart) {
+        return res.status(404).json({ error: "Cart not found" });
+      }
 
       // Check if Game exists in Cart
-      const cartItem = await prisma.cart.findFirst({
+      const existingCartItem = await prisma.gameInCart.findFirst({
         where: {
-          userId,
+          cartId: cart.id,
           gameId,
         },
       });
 
-      if (!cartItem) {
+      if (!existingCartItem) {
         return res.status(404).json({ error: "Cart item not found" });
       }
       // Delete the Game From Cart
-      await prisma.cart.delete({
+      await prisma.gameInCart.delete({
         where: {
-          id: cartItem.id,
+          id: existingCartItem.id,
         },
       });
 
