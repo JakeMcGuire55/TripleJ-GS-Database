@@ -27,10 +27,25 @@ router.post(
       if (!user || !game) {
         return res.status(404).json({ error: "User or game not found" });
       }
+
+      // Create a Cart for the user if they don't have one
+      let cart = await prisma.cart.findUnique({
+        where: {
+          userId: parseInt(userId),
+        },
+      });
+      if (!cart) {
+        cart = await prisma.cart.create({
+          data: {
+            userId: parseInt(userId),
+          },
+        });
+      }
+
       // Check if the Game is already in the User's Cart
       const existingCartItem = await prisma.gameInCart.findFirst({
         where: {
-          cartId: userId,
+          cartId: cart.id,
           gameId,
         },
       });
@@ -43,7 +58,7 @@ router.post(
         // Creates new cart item if game is not already in the users cart
         cartItem = await prisma.gameInCart.create({
           data: {
-            cartId: userId,
+            cartId: cart.id,
             gameId,
           },
         });
