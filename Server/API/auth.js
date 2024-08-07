@@ -4,6 +4,8 @@ const express = require('express');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const router = express.Router();
+const { authenticationAuthorization } = require("../Middleware/authMiddleware");
+
 
 // Intermediate Function for Creating User Data in Database
 const insertUserIntoDB = async (username, email, hashedPassword, role) => {
@@ -72,6 +74,30 @@ router.post("/login", async (req, res) => {
         res.status(500).json({ error: "Internal server error" });
     }
 });
+
+// Route for Logged in ADMIN to view ALL USERS.
+router.get("/users", authenticationAuthorization("ADMIN"), async (req, res) => {
+    try {
+        const users = await prisma.user.findMany({
+            include: {
+                cart: {
+                    include: {
+                        games: true,
+                    },
+                },
+                wishlist: {
+                    include: {
+                        games: true,
+                    },
+                },
+            },
+        });
+        res.status(200).json(users);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: "Internal server error" });
+    }
+})
 
 
 module.exports = router;
