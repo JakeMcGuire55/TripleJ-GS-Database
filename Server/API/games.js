@@ -65,7 +65,7 @@ router.patch(
 );
 
 // ADD Game to Database (Access = ADMIN ONLY)
-router.patch("/games", authenticationAuthorization("ADMIN"), async (req, res) => {
+router.post("/games", authenticationAuthorization("ADMIN"), async (req, res) => {
   try {
     const { title, price, description, imageUrl, genre } = req.body;
 
