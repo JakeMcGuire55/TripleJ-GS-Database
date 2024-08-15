@@ -123,23 +123,42 @@ router.get(
   async (req, res) => {
     try {
       const { userId } = req.params;
-
+      
+      // Find the User
       const user = await prisma.user.findUnique({
         where: { id: parseInt(userId) },
+      });
+
+      // Find the User's Cart
+      const cart = await prisma.cart.findUnique({
+        where: { userId: parseInt(userId) },
       });
 
       // Check if User exists in database
       if (!user) {
         return res.status(404).json({ error: "User not found" });
       }
+      // Check if Cart exists in database
+      if (!cart) {
+        return res.status(404).json({ error: "Cart not found" });
+      }
 
-      // Fetch all cart items
-      const cartItems = await prisma.cart.findMany({
-        where: { userId: parseInt(userId) },
-        include: { games: true }, //Include game details
+      // Fetch all game IDs in the users Cart
+      const gameIds = await prisma.gameInCart.findMany({
+        where: { cartId: cart.id }, // Find all gameInCart records associated with the cartId
+        select: { gameId: true }, // Only select the gameId field from each record
       });
 
-      res.status(200).json(cartItems);
+      // Fetch the game objects based on the game IDs
+      const games = await prisma.game.findMany({
+        where: {
+          id: {
+            in: gameIds.map((game) => game.gameId), // Filter games based on the array of gameIds
+          },
+        },
+      });
+
+      res.status(200).json(games);
     } catch (error) {
       console.error(error);
       res.status(500).json({ error: "Internal Server Error" });
